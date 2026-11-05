@@ -14,12 +14,17 @@
 </head>
 <body>
 
-  <div class="bg-glow"></div>
+  <div class="grid-bg"></div>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
 
   <header class="topbar">
     <div class="topbar-inner">
       <a href="#overview" class="brand">
-        <span class="brand-mark"><span class="brand-mark-inner"></span></span>
+        <span class="brand-mark">
+          <span class="brand-mark-inner"></span>
+        </span>
         <span class="brand-name">XevUI</span>
         <span class="brand-version">V1</span>
       </a>
@@ -27,7 +32,7 @@
         <a href="#features">Features</a>
         <a href="#install">Install</a>
         <a href="https://github.com/krislowk/XevUI" target="_blank" rel="noopener" class="top-link-gh">
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
           GitHub
         </a>
         <a href="https://discord.gg/hfGqWjSVMg" target="_blank" rel="noopener">Discord</a>
@@ -39,7 +44,7 @@
     <aside class="sidebar">
       <div class="sidebar-label">Documentation</div>
       <nav>
-        <a href="#overview" class="nav-link">Overview</a>
+        <a href="#overview" class="nav-link active">Overview</a>
         <a href="#features" class="nav-link">Features</a>
         <a href="#install" class="nav-link">Installation</a>
         <a href="#quickstart" class="nav-link">Quick Start</a>
@@ -58,39 +63,24 @@
         <div class="hero-content">
           <div class="eyebrow">
             <span class="eyebrow-dot"></span>
-            Version V1
+            v1.0.0 now live
           </div>
-          <h1>Build UIs<br><span class="gradient-text">that feel heavy.</span></h1>
+          <h1>Build interfaces<br><span class="gradient-text">that feel heavy.</span></h1>
           <p class="lead">A single file UI library for Roblox. Dark theme, red accents, zero dependencies. Drop one line, ship a polished menu.</p>
+          
           <div class="hero-actions">
             <a href="#install" class="btn btn-primary">
               Get Started
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
             <a href="https://github.com/krislowk/XevUI" target="_blank" rel="noopener" class="btn btn-ghost">
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
               Star on GitHub
             </a>
           </div>
-          <div class="hero-stats">
-            <div class="stat">
-              <span class="stat-value">1</span>
-              <span class="stat-label">file</span>
-            </div>
-            <div class="stat-sep"></div>
-            <div class="stat">
-              <span class="stat-value">0</span>
-              <span class="stat-label">deps</span>
-            </div>
-            <div class="stat-sep"></div>
-            <div class="stat">
-              <span class="stat-value">10</span>
-              <span class="stat-label">elements</span>
-            </div>
-          </div>
         </div>
 
-        <div class="hero-mock">
+        <div class="hero-mock" id="heroMock">
           <div class="mock-glow"></div>
           <div class="mock-window">
             <div class="mock-header">
@@ -106,7 +96,7 @@
             </div>
             <div class="mock-body">
               <div class="mock-sidebar">
-                <div class="mock-search"></div>
+                <div class="mock-search">Search...</div>
                 <div class="mock-tab active"><span class="mock-tab-bar"></span>Main</div>
                 <div class="mock-tab">Combat</div>
                 <div class="mock-tab">Config</div>
@@ -125,7 +115,7 @@
                     <div class="mock-row-label">Enable ESP</div>
                     <div class="mock-toggle on"><div class="mock-toggle-knob"></div></div>
                   </div>
-                  <div class="mock-row">
+                  <div class="mock-row" style="margin-top: 8px;">
                     <div class="mock-row-label">Distance</div>
                     <div class="mock-row-value">1000m</div>
                   </div>
@@ -133,7 +123,7 @@
                     <div class="mock-slider-fill"></div>
                     <div class="mock-slider-thumb"></div>
                   </div>
-                  <div class="mock-row">
+                  <div class="mock-row" style="margin-top: 8px;">
                     <div class="mock-row-label">Box Style</div>
                     <div class="mock-dropdown">2D</div>
                   </div>
@@ -216,13 +206,20 @@
           <h2>Installation</h2>
         </div>
         <p class="section-lead">Add the library to your script with a single line. No external files, no setup.</p>
+        
         <div class="codeblock">
           <div class="codeblock-head">
+            <div class="mac-dots">
+              <span class="mac-dot red"></span>
+              <span class="mac-dot yellow"></span>
+              <span class="mac-dot green"></span>
+            </div>
             <span class="lang">lua</span>
             <button class="copy-btn" type="button">Copy</button>
           </div>
 <pre><code class="language-lua">local XevUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/krislowk/XevUI/refs/heads/main/source/XevUI.lua"))()</code></pre>
         </div>
+
         <div class="callout">
           <strong>Requirements.</strong> Any executor with <code>HttpGet</code> and <code>loadstring</code> support. Works on Delta, Codex, Wave, and every mainstream executor on mobile or desktop.
         </div>
@@ -234,8 +231,14 @@
           <h2>Quick Start</h2>
         </div>
         <p class="section-lead">Create a window, add a tab, drop in a toggle. That's the whole flow.</p>
+        
         <div class="codeblock">
           <div class="codeblock-head">
+            <div class="mac-dots">
+              <span class="mac-dot red"></span>
+              <span class="mac-dot yellow"></span>
+              <span class="mac-dot green"></span>
+            </div>
             <span class="lang">lua</span>
             <button class="copy-btn" type="button">Copy</button>
           </div>
@@ -324,7 +327,10 @@ Section:CreateToggle({
 
         <h3>Button</h3>
         <div class="codeblock">
-          <div class="codeblock-head"><span class="lang">lua</span><button class="copy-btn" type="button">Copy</button></div>
+          <div class="codeblock-head">
+            <div class="mac-dots"><span class="mac-dot red"></span><span class="mac-dot yellow"></span><span class="mac-dot green"></span></div>
+            <span class="lang">lua</span><button class="copy-btn" type="button">Copy</button>
+          </div>
 <pre><code class="language-lua">Section:CreateButton({
     Text = "Click Me",
     Callback = function()
@@ -335,7 +341,10 @@ Section:CreateToggle({
 
         <h3>Toggle</h3>
         <div class="codeblock">
-          <div class="codeblock-head"><span class="lang">lua</span><button class="copy-btn" type="button">Copy</button></div>
+          <div class="codeblock-head">
+            <div class="mac-dots"><span class="mac-dot red"></span><span class="mac-dot yellow"></span><span class="mac-dot green"></span></div>
+            <span class="lang">lua</span><button class="copy-btn" type="button">Copy</button>
+          </div>
 <pre><code class="language-lua">local toggle = Section:CreateToggle({
     Text = "Enable ESP",
     Flag = "ESP",
@@ -351,7 +360,10 @@ toggle:Set(false)</code></pre>
 
         <h3>Slider</h3>
         <div class="codeblock">
-          <div class="codeblock-head"><span class="lang">lua</span><button class="copy-btn" type="button">Copy</button></div>
+          <div class="codeblock-head">
+            <div class="mac-dots"><span class="mac-dot red"></span><span class="mac-dot yellow"></span><span class="mac-dot green"></span></div>
+            <span class="lang">lua</span><button class="copy-btn" type="button">Copy</button>
+          </div>
 <pre><code class="language-lua">Section:CreateSlider({
     Text = "Render Distance",
     Flag = "RenderDistance",
@@ -365,23 +377,12 @@ toggle:Set(false)</code></pre>
 })</code></pre>
         </div>
 
-        <h3>Textbox</h3>
-        <div class="codeblock">
-          <div class="codeblock-head"><span class="lang">lua</span><button class="copy-btn" type="button">Copy</button></div>
-<pre><code class="language-lua">Section:CreateTextbox({
-    Text = "Username",
-    Placeholder = "Type a name",
-    Flag = "Username",
-    Default = "",
-    Callback = function(value)
-        print("Typed:", value)
-    end,
-})</code></pre>
-        </div>
-
         <h3>Dropdown</h3>
         <div class="codeblock">
-          <div class="codeblock-head"><span class="lang">lua</span><button class="copy-btn" type="button">Copy</button></div>
+          <div class="codeblock-head">
+            <div class="mac-dots"><span class="mac-dot red"></span><span class="mac-dot yellow"></span><span class="mac-dot green"></span></div>
+            <span class="lang">lua</span><button class="copy-btn" type="button">Copy</button>
+          </div>
 <pre><code class="language-lua">Section:CreateDropdown({
     Text = "Box Style",
     Flag = "BoxStyle",
@@ -390,60 +391,7 @@ toggle:Set(false)</code></pre>
     Callback = function(selected)
         print("Style:", selected)
     end,
-})
-
-Section:CreateDropdown({
-    Text = "Whitelist",
-    Flag = "Whitelist",
-    Multi = true,
-    Options = {"Player1", "Player2", "Player3"},
-    Default = {},
-    Callback = function(list)
-        print(#list, "players selected")
-    end,
 })</code></pre>
-        </div>
-
-        <h3>Color Picker</h3>
-        <div class="codeblock">
-          <div class="codeblock-head"><span class="lang">lua</span><button class="copy-btn" type="button">Copy</button></div>
-<pre><code class="language-lua">Section:CreateColorPicker({
-    Text = "ESP Color",
-    Flag = "ESPColor",
-    Default = Color3.fromRGB(224, 44, 52),
-    Callback = function(color)
-        print(color)
-    end,
-})</code></pre>
-        </div>
-
-        <h3>Keybind</h3>
-        <div class="codeblock">
-          <div class="codeblock-head"><span class="lang">lua</span><button class="copy-btn" type="button">Copy</button></div>
-<pre><code class="language-lua">Section:CreateKeybind({
-    Text = "Aim Key",
-    Flag = "AimKey",
-    Default = Enum.KeyCode.E,
-    Callback = function(key)
-        print("Key:", key.Name)
-    end,
-})</code></pre>
-        </div>
-
-        <h3>Label and Paragraph</h3>
-        <div class="codeblock">
-          <div class="codeblock-head"><span class="lang">lua</span><button class="copy-btn" type="button">Copy</button></div>
-<pre><code class="language-lua">Section:CreateLabel({ Text = "Version: V1" })
-
-Section:CreateParagraph({
-    Text = "A block of descriptive text that wraps to fit the container.",
-})</code></pre>
-        </div>
-
-        <h3>Divider</h3>
-        <div class="codeblock">
-          <div class="codeblock-head"><span class="lang">lua</span><button class="copy-btn" type="button">Copy</button></div>
-<pre><code class="language-lua">Section:CreateDivider()</code></pre>
         </div>
       </section>
 
@@ -454,7 +402,10 @@ Section:CreateParagraph({
         </div>
         <p class="section-lead">Any element with a <code>Flag</code> string writes to <code>XevUI.Flags</code> when its value changes. Read the table directly anywhere in your script.</p>
         <div class="codeblock">
-          <div class="codeblock-head"><span class="lang">lua</span><button class="copy-btn" type="button">Copy</button></div>
+          <div class="codeblock-head">
+            <div class="mac-dots"><span class="mac-dot red"></span><span class="mac-dot yellow"></span><span class="mac-dot green"></span></div>
+            <span class="lang">lua</span><button class="copy-btn" type="button">Copy</button>
+          </div>
 <pre><code class="language-lua">print(XevUI.Flags.ESP)
 print(XevUI.Flags.RenderDistance)
 print(XevUI.Flags.ESPColor)
@@ -465,7 +416,6 @@ game:GetService("RunService").Heartbeat:Connect(function()
     end
 end)</code></pre>
         </div>
-        <p>Useful for reading state from outside the UI callbacks. No need to wire every element into your game loop.</p>
       </section>
 
       <section id="save-load" class="section">
@@ -475,14 +425,16 @@ end)</code></pre>
         </div>
         <p class="section-lead">Dump every flag to JSON and restore it later. Color3 values are encoded with a type tag so they survive the round trip.</p>
         <div class="codeblock">
-          <div class="codeblock-head"><span class="lang">lua</span><button class="copy-btn" type="button">Copy</button></div>
+          <div class="codeblock-head">
+            <div class="mac-dots"><span class="mac-dot red"></span><span class="mac-dot yellow"></span><span class="mac-dot green"></span></div>
+            <span class="lang">lua</span><button class="copy-btn" type="button">Copy</button>
+          </div>
 <pre><code class="language-lua">local json = Window:SaveConfig()
 writefile("myhub_config.json", json)
 
 local data = readfile("myhub_config.json")
 Window:LoadConfig(data)</code></pre>
         </div>
-        <p>Wrap both calls in <code>pcall</code> if your executor might not support file IO. The library itself does not touch the filesystem, so it works on any executor that exposes <code>writefile</code> and <code>readfile</code>.</p>
       </section>
 
       <section id="examples" class="section">
@@ -492,7 +444,10 @@ Window:LoadConfig(data)</code></pre>
         </div>
         <p class="section-lead">The repo ships with a complete working demo that uses every element type. Grab it from GitHub.</p>
         <div class="codeblock">
-          <div class="codeblock-head"><span class="lang">lua</span><button class="copy-btn" type="button">Copy</button></div>
+          <div class="codeblock-head">
+            <div class="mac-dots"><span class="mac-dot red"></span><span class="mac-dot yellow"></span><span class="mac-dot green"></span></div>
+            <span class="lang">lua</span><button class="copy-btn" type="button">Copy</button>
+          </div>
 <pre><code class="language-lua">loadstring(game:HttpGet("https://raw.githubusercontent.com/krislowk/XevUI/refs/heads/main/example.lua"))()</code></pre>
         </div>
       </section>

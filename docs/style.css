@@ -117,23 +117,24 @@ body {
   color: var(--text);
 }
 
+/* Icon Container */
 .brand-mark {
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   background: linear-gradient(135deg, var(--accent), var(--accent-dark));
   border-radius: 7px;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 0 20px var(--accent-glow), inset 0 1px 0 rgba(255,255,255,0.2);
+  overflow: hidden;
+  position: relative;
 }
 
-.brand-mark-inner {
-  width: 8px;
-  height: 8px;
-  background: white;
-  border-radius: 2px;
-  box-shadow: 0 0 8px rgba(255,255,255,0.8);
+.brand-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .brand-name {
@@ -395,11 +396,19 @@ h1 {
 }
 
 .mock-icon {
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   background: linear-gradient(135deg, var(--accent-hover), var(--accent-dark));
-  border-radius: 6px;
+  border-radius: 7px;
   box-shadow: 0 0 12px var(--accent-glow);
+  overflow: hidden;
+  position: relative;
+}
+
+.mock-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .mock-titles { flex: 1; }
@@ -612,12 +621,17 @@ h1 {
 .section {
   padding: 72px 0;
   border-top: 1px solid var(--stroke);
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.section.visible {
+.section.animate-in {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.section.animate-in.visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -1071,4 +1085,4 @@ footer::before {
   .codeblock-head { justify-content: space-between; }
   .codeblock-head .lang { margin: 0; }
   .copy-btn { position: static; }
-  }
+}

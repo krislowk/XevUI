@@ -17,7 +17,7 @@ A single-file UI library for Roblox. Dark theme, red accents, zero dependencies.
 ## Load
 
 ```lua
-local XevUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/krislowk/xevui/main/Source/XevUI.lua"))()
+local XevUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/krislowk/XevUI/refs/heads/main/source/XevUI.lua"))()
 ```
 
 ## Quick Start
@@ -134,8 +134,9 @@ Typing into the sidebar search box filters every element across all tabs by its 
 
 ```
 XevUI/
-  Source/
+  source/
     XevUI.lua
+  LICENSE
   README.md
   example.lua
 ```

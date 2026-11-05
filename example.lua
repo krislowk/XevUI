@@ -1,4 +1,4 @@
-local XevUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/yourname/xevui/main/Source/XevUI.lua"))()
+local XevUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/krislowk/xevui/main/Source/XevUI.lua"))()
 
 local Window = XevUI:CreateWindow({
     Title = "XevUI",

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XevUI - Roblox UI Library</title>
+  <meta name="description" content="A single file UI library for Roblox. Dark theme, red accents, zero dependencies.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23E02C34'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="#overview" class="brand">
+        <span class="brand-mark"></span>
+        <span class="brand-name">XevUI</span>
+        <span class="brand-version">V1</span>
+      </a>
+      <nav class="top-links">
+        <a href="https://github.com/krislowk/XevUI" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://discord.gg/hfGqWjSVMg" target="_blank" rel="noopener">Discord</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <nav>
+        <a href="#overview" class="nav-link">Overview</a>
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#install" class="nav-link">Installation</a>
+        <a href="#quickstart" class="nav-link">Quick Start</a>
+        <a href="#window-api" class="nav-link">Window API</a>
+        <a href="#tab-api" class="nav-link">Tab API</a>
+        <a href="#elements" class="nav-link">Elements</a>
+        <a href="#flags" class="nav-link">Flags</a>
+        <a href="#save-load" class="nav-link">Save and Load</a>
+        <a href="#examples" class="nav-link">Full Example</a>
+        <a href="#license" class="nav-link">License</a>
+      </nav>
+    </aside>
+
+    <main>
+      <section id="overview" class="hero">
+        <span class="eyebrow">Version V1</span>
+        <h1>XevUI</h1>
+        <p class="lead">A single file UI library for Roblox. Dark theme, red accents, zero dependencies. Built for script hubs, internal tools, and exploit menus.</p>
+        <div class="hero-actions">
+          <a href="#install" class="btn btn-primary">Get Started</a>
+          <a href="https://github.com/krislowk/XevUI" target="_blank" rel="noopener" class="btn btn-ghost">View on GitHub</a>
+        </div>
+      </section>
+
+      <section id="features" class="section">
+        <h2>Features</h2>
+        <p class="section-lead">Everything you need to build a polished UI without pulling in dependencies.</p>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h3>Auto Scale</h3>
+            <p>Resizes to fit any viewport. Mobile, desktop, tablet. No manual sizing.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Drag Clamping</h3>
+            <p>The window cannot be dragged off screen. Boundary math is built in.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Minimize to Opener</h3>
+            <p>Collapses into a clean semi transparent widget. Drag it anywhere.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Search Filter</h3>
+            <p>Type in the sidebar to filter every element across all tabs by name.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Custom Icons</h3>
+            <p>Script icon in the header, plus optional icons per tab.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Profile Widget</h3>
+            <p>Shows the local player's avatar, display name, and username.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Save and Load</h3>
+            <p>Dump every flag to JSON. Restore them on next launch.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Slider Text Input</h3>
+            <p>Drag the slider or type an exact value. Both work.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="install" class="section">
+        <h2>Installation</h2>
+        <p class="section-lead">Add the library to your script with a single line. No external files, no setup.</p>
+        <div class="codeblock">
+          <div class="codeblock-head">
+            <span class="lang">lua</span>
+            <button class="copy-btn" type="button">Copy</button>
+          </div>
+<pre><code class="language-lua">local XevUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/krislowk/XevUI/refs/heads/main/source/XevUI.lua"))()</code></pre>
+        </div>
+        <p>Requires an executor with <code>HttpGet</code> and <code>loadstring</code> support. Works on Delta, Codex, Wave, and any mainstream executor on mobile or desktop.</p>
+      </section>
+
+      <section id="quickstart" class="section">
+        <h2>Quick Start</h2>
+        <p class="section-lead">Create a window, add a tab, drop in a toggle. That's the whole flow.</p>
+        <div class="codeblock">
+          <div class="codeblock-head">
+            <span class="lang">lua</span>
+            <button class="copy-btn" type="button">Copy</button>
+          </div>
+<pre><code class="language-lua">local Window = XevUI:CreateWindow({
+    Title = "My Hub",
+    Subtitle = "V1",
+    Icon = "rbxassetid://7733750337",
+    Width = 440,
+    Height = 320,
+})
+
+local Main = Window:CreateTab("Main")
+local Section = Main:CreateSection("Visuals", "ESP settings")
+
+Section:CreateToggle({
+    Text = "Enable ESP",
+    Flag = "ESP",
+    Default = true,
+    Callback = function(value)
+        print("ESP:", value)
+    end,
+})</code></pre>
+        </div>
+        <div class="callout">
+          <strong>Config object.</strong> <code>CreateWindow</code> accepts Title, Subtitle, Parent, Icon, Width, Height, and ToggleKey. Every field is optional. The default parent is PlayerGui, the default toggle key is RightShift.
+        </div>
+      </section>
+
+      <section id="window-api" class="section">
+        <h2>Window API</h2>
+        <p class="section-lead">The object returned by <code>XevUI:CreateWindow</code>. Controls the entire UI.</p>
+        <table class="api-table">
+          <thead>
+            <tr><th>Method</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Window:CreateTab(name, iconId)</td><td>Adds a tab. iconId is optional. Returns the Tab object.</td></tr>
+            <tr><td>Window:SelectTab(name)</td><td>Switches to a specific tab by name.</td></tr>
+            <tr><td>Window:Notify(options)</td><td>Shows a notification. Options: Title, Text, Duration.</td></tr>
+            <tr><td>Window:SaveConfig()</td><td>Returns a JSON string of all current Flags.</td></tr>
+            <tr><td>Window:LoadConfig(json)</td><td>Restores Flags from a JSON string.</td></tr>
+            <tr><td>Window:SetTitle(text)</td><td>Updates the window title.</td></tr>
+            <tr><td>Window:SetSubtitle(text)</td><td>Updates the window subtitle.</td></tr>
+            <tr><td>Window:Destroy()</td><td>Destroys the UI.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="tab-api" class="section">
+        <h2>Tab API</h2>
+        <p class="section-lead">Each tab contains one or more sections. Sections group related elements.</p>
+        <table class="api-table">
+          <thead>
+            <tr><th>Method</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Tab:CreateSection(title, description)</td><td>Creates a section. Description is optional. Returns the Section object.</td></tr>
+            <tr><td>Tab:CreateDivider()</td><td>Adds a thin horizontal line between tabs.</td></tr>
+            <tr><td>Tab:Select()</td><td>Activates this tab.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="elements" class="section">
+        <h2>Elements</h2>
+        <p class="section-lead">Every element accepts an optional <code>Flag</code> and <code>Callback</code>. When a Flag is provided, the current value is written to <code>XevUI.Flags</code> on change.</p>
+
+        <div class="element-grid">
+          <span class="element-tag">CreateButton</span>
+          <span class="element-tag">CreateToggle</span>
+          <span class="element-tag">CreateSlider</span>
+          <span class="element-tag">CreateTextbox</span>
+          <span class="element-tag">CreateDropdown</span>
+          <span class="element-tag">CreateColorPicker</span>
+          <span class="element-tag">CreateKeybind</span>
+          <span class="element-tag">CreateLabel</span>
+          <span class="element-tag">CreateParagraph</span>
+          <span class="element-tag">CreateDivider</span>
+        </div>
+
+        <h3>Button</h3>
+        <div class="codeblock">
+          <div class="codeblock-head">
+            <span class="lang">lua</span>
+            <button class="copy-btn" type="button">Copy</button>
+          </div>
+<pre><code class="language-lua">Section:CreateButton({
+    Text = "Click Me",
+    Callback = function()
+        Window:Notify({Title = "Clicked", Text = "Button pressed."})
+    end,
+})</code></pre>
+        </div>
+
+        <h3>Toggle</h3>
+        <div class="codeblock">
+          <div class="codeblock-head">
+            <span class="lang">lua</span>
+            <button class="copy-btn" type="button">Copy</button>
+          </div>
+<pre><code class="language-lua">local toggle = Section:CreateToggle({
+    Text = "Enable ESP",
+    Flag = "ESP",
+    Default = true,
+    Callback = function(state)
+        print("ESP:", state)
+    end,
+})
+
+print(toggle:Get())
+toggle:Set(false)</code></pre>
+        </div>
+
+        <h3>Slider</h3>
+        <div class="codeblock">
+          <div class="codeblock-head">
+            <span class="lang">lua</span>
+            <button class="copy-btn" type="button">Copy</button>
+          </div>
+<pre><code class="language-lua">Section:CreateSlider({
+    Text = "Render Distance",
+    Flag = "RenderDistance",
+    Min = 100,
+    Max = 5000,
+    Default = 1000,
+    Suffix = "m",
+    Callback = function(value)
+        print("Distance:", value)
+    end,
+})</code></pre>
+        </div>
+
+        <h3>Textbox</h3>
+        <div class="codeblock">
+          <div class="codeblock-head">
+            <span class="lang">lua</span>
+            <button class="copy-btn" type="button">Copy</button>
+          </div>
+<pre><code class="language-lua">Section:CreateTextbox({
+    Text = "Username",
+    Placeholder = "Type a name",
+    Flag = "Username",
+    Default = "",
+    Callback = function(value)
+        print("Typed:", value)
+    end,
+})</code></pre>
+        </div>
+
+        <h3>Dropdown</h3>
+        <div class="codeblock">
+          <div class="codeblock-head">
+            <span class="lang">lua</span>
+            <button class="copy-btn" type="button">Copy</button>
+          </div>
+<pre><code class="language-lua">Section:CreateDropdown({
+    Text = "Box Style",
+    Flag = "BoxStyle",
+    Options = {"2D", "3D", "Corner", "Filled"},
+    Default = "2D",
+    Callback = function(selected)
+        print("Style:", selected)
+    end,
+})
+
+Section:CreateDropdown({
+    Text = "Whitelist",
+    Flag = "Whitelist",
+    Multi = true,
+    Options = {"Player1", "Player2", "Player3"},
+    Default = {},
+    Callback = function(list)
+        print(#list, "players selected")
+    end,
+})</code></pre>
+        </div>
+
+        <h3>Color Picker</h3>
+        <div class="codeblock">
+          <div class="codeblock-head">
+            <span class="lang">lua</span>
+            <button class="copy-btn" type="button">Copy</button>
+          </div>
+<pre><code class="language-lua">Section:CreateColorPicker({
+    Text = "ESP Color",
+    Flag = "ESPColor",
+    Default = Color3.fromRGB(224, 44, 52),
+    Callback = function(color)
+        print(color)
+    end,
+})</code></pre>
+        </div>
+
+        <h3>Keybind</h3>
+        <div class="codeblock">
+          <div class="codeblock-head">
+            <span class="lang">lua</span>
+            <button class="copy-btn" type="button">Copy</button>
+          </div>
+<pre><code class="language-lua">Section:CreateKeybind({
+    Text = "Aim Key",
+    Flag = "AimKey",
+    Default = Enum.KeyCode.E,
+    Callback = function(key)
+        print("Key:", key.Name)
+    end,
+})</code></pre>
+        </div>
+
+        <h3>Label and Paragraph</h3>
+        <div class="codeblock">
+          <div class="codeblock-head">
+            <span class="lang">lua</span>
+            <button class="copy-btn" type="button">Copy</button>
+          </div>
+<pre><code class="language-lua">Section:CreateLabel({
+    Text = "Version: V1",
+})
+
+Section:CreateParagraph({
+    Text = "A block of descriptive text that wraps to fit the container.",
+})</code></pre>
+        </div>
+
+        <h3>Divider</h3>
+        <div class="codeblock">
+          <div class="codeblock-head">
+            <span class="lang">lua</span>
+            <button class="copy-btn" type="button">Copy</button>
+          </div>
+<pre><code class="language-lua">Section:CreateDivider()</code></pre>
+        </div>
+      </section>
+
+      <section id="flags" class="section">
+        <h2>Flags</h2>
+        <p class="section-lead">Any element with a <code>Flag</code> string writes to <code>XevUI.Flags</code> when its value changes. Read the table directly anywhere in your script.</p>
+        <div class="codeblock">
+          <div class="codeblock-head">
+            <span class="lang">lua</span>
+            <button class="copy-btn" type="button">Copy</button>
+          </div>
+<pre><code class="language-lua">print(XevUI.Flags.ESP)
+print(XevUI.Flags.RenderDistance)
+print(XevUI.Flags.ESPColor)
+
+game:GetService("RunService").Heartbeat:Connect(function()
+    if XevUI.Flags.Aimbot then
+        -- do aimbot thing
+    end
+end)</code></pre>
+        </div>
+        <p>Useful for reading state from outside the UI callbacks. No need to wire every element into your game loop.</p>
+      </section>
+
+      <section id="save-load" class="section">
+        <h2>Save and Load</h2>
+        <p class="section-lead">Dump every flag to JSON and restore it later. Color3 values are encoded with a type tag so they survive the round trip.</p>
+        <div class="codeblock">
+          <div class="codeblock-head">
+            <span class="lang">lua</span>
+            <button class="copy-btn" type="button">Copy</button>
+          </div>
+<pre><code class="language-lua">local json = Window:SaveConfig()
+writefile("myhub_config.json", json)
+
+local data = readfile("myhub_config.json")
+Window:LoadConfig(data)</code></pre>
+        </div>
+        <p>Wrap both calls in <code>pcall</code> if your executor might not support file IO. The library itself does not touch the filesystem, so it works on any executor that exposes <code>writefile</code> and <code>readfile</code>.</p>
+      </section>
+
+      <section id="examples" class="section">
+        <h2>Full Example</h2>
+        <p class="section-lead">The repo ships with a complete working demo that uses every element type. Grab it from GitHub.</p>
+        <div class="codeblock">
+          <div class="codeblock-head">
+            <span class="lang">lua</span>
+            <button class="copy-btn" type="button">Copy</button>
+          </div>
+<pre><code class="language-lua">loadstring(game:HttpGet("https://raw.githubusercontent.com/krislowk/XevUI/refs/heads/main/example.lua"))()</code></pre>
+        </div>
+        <p>The example wires up three tabs, ten element types, a save and load flow, and shows how to read flags from a game loop. Read it side by side with the API tables above for a full picture.</p>
+      </section>
+
+      <section id="license" class="section">
+        <h2>License</h2>
+        <p class="section-lead">MIT. Free to use, modify, and redistribute.</p>
+        <p>See the <a href="https://github.com/krislowk/XevUI/blob/main/LICENSE" target="_blank" rel="noopener" style="color:var(--accent-hover);text-decoration:none">LICENSE</a> file in the repo for the full text.</p>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <p>Made by Zen/Krislowk.</p>
+    <div class="footer-links">
+      <a href="https://github.com/krislowk/XevUI" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://discord.gg/hfGqWjSVMg" target="_blank" rel="noopener">Discord</a>
+      <a href="https://raw.githubusercontent.com/krislowk/XevUI/refs/heads/main/source/XevUI.lua" target="_blank" rel="noopener">Raw Source</a>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

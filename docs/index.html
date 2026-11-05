@@ -6,6 +6,7 @@
   <title>XevUI - Roblox UI Library</title>
   <meta name="description" content="A single file UI library for Roblox. Dark theme, red accents, zero dependencies.">
   
+  <!-- Discord Embed Metadata -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://krislowk.github.io/XevUI/">
   <meta property="og:title" content="XevUI - Roblox UI Library">
@@ -87,26 +88,26 @@
 
         <div class="hero-mock" id="heroMock">
           <div class="mock-glow"></div>
-          <div class="mock-window">
+          <div class="mock-window" id="interactiveWindow">
             <div class="mock-header">
               <div class="mock-icon">
-                <img src="icon.png" alt="Icon">
+                <img src="icon.png" alt="Icon" draggable="false">
               </div>
               <div class="mock-titles">
                 <div class="mock-title">XevUI</div>
                 <div class="mock-subtitle">V1</div>
               </div>
               <div class="mock-actions">
-                <div class="mock-btn">-</div>
-                <div class="mock-btn">x</div>
+                <div class="mock-btn" id="mockMinBtn">-</div>
+                <div class="mock-btn" id="mockCloseBtn">x</div>
               </div>
             </div>
-            <div class="mock-body">
+            <div class="mock-body" id="mockBody">
               <div class="mock-sidebar">
                 <div class="mock-search">Search...</div>
-                <div class="mock-tab active"><span class="mock-tab-bar"></span>Main</div>
-                <div class="mock-tab">Combat</div>
-                <div class="mock-tab">Config</div>
+                <div class="mock-tab active" data-target="page-main"><span class="mock-tab-bar"></span>Main</div>
+                <div class="mock-tab" data-target="page-combat">Combat</div>
+                <div class="mock-tab" data-target="page-config">Config</div>
                 <div class="mock-profile">
                   <div class="mock-pfp"></div>
                   <div class="mock-profile-text">
@@ -116,27 +117,71 @@
                 </div>
               </div>
               <div class="mock-content">
-                <div class="mock-section-title"><span class="mock-dot"></span>Visuals</div>
-                <div class="mock-panel">
-                  <div class="mock-row">
-                    <div class="mock-row-label">Enable ESP</div>
-                    <div class="mock-toggle on"><div class="mock-toggle-knob"></div></div>
-                  </div>
-                  <div class="mock-row" style="margin-top: 8px;">
-                    <div class="mock-row-label">Distance</div>
-                    <div class="mock-row-value">1000m</div>
-                  </div>
-                  <div class="mock-slider">
-                    <div class="mock-slider-fill"></div>
-                    <div class="mock-slider-thumb"></div>
-                  </div>
-                  <div class="mock-row" style="margin-top: 8px;">
-                    <div class="mock-row-label">Box Style</div>
-                    <div class="mock-dropdown">2D</div>
+                
+                <!-- Main Page -->
+                <div class="mock-page active" id="page-main">
+                  <div class="mock-section-title"><span class="mock-dot"></span>Visuals</div>
+                  <div class="mock-panel">
+                    <div class="mock-row">
+                      <div class="mock-row-label">Enable ESP</div>
+                      <div class="mock-toggle on"><div class="mock-toggle-knob"></div></div>
+                    </div>
+                    <div class="mock-row" style="margin-top: 8px;">
+                      <div class="mock-row-label">Distance</div>
+                      <div class="mock-row-value" id="mockSliderVal">1000m</div>
+                    </div>
+                    <div class="mock-slider" id="mockSlider">
+                      <div class="mock-slider-fill" id="mockSliderFill" style="width: 50%;"></div>
+                      <div class="mock-slider-thumb" id="mockSliderThumb" style="left: 50%;"></div>
+                    </div>
+                    <div class="mock-row" style="margin-top: 8px;">
+                      <div class="mock-row-label">Box Style</div>
+                      <div class="mock-dropdown">2D</div>
+                    </div>
                   </div>
                 </div>
+
+                <!-- Combat Page -->
+                <div class="mock-page" id="page-combat" style="display: none;">
+                  <div class="mock-section-title"><span class="mock-dot"></span>Combat</div>
+                  <div class="mock-panel">
+                    <div class="mock-row">
+                      <div class="mock-row-label">Aimbot</div>
+                      <div class="mock-toggle"><div class="mock-toggle-knob"></div></div>
+                    </div>
+                    <div class="mock-row" style="margin-top: 8px;">
+                      <div class="mock-row-label">FOV</div>
+                      <div class="mock-row-value">120°</div>
+                    </div>
+                    <div class="mock-slider">
+                      <div class="mock-slider-fill" style="width: 30%;"></div>
+                      <div class="mock-slider-thumb" style="left: 30%;"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Config Page -->
+                <div class="mock-page" id="page-config" style="display: none;">
+                  <div class="mock-section-title"><span class="mock-dot"></span>Config</div>
+                  <div class="mock-panel">
+                    <div class="mock-row">
+                      <div class="mock-row-label">Save Config</div>
+                      <div class="mock-dropdown">Click</div>
+                    </div>
+                    <div class="mock-row" style="margin-top: 8px;">
+                      <div class="mock-row-label">Load Config</div>
+                      <div class="mock-dropdown">Click</div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
+          </div>
+          
+          <div class="mock-reopen" id="mockReopen">
+            <div class="brand-mark" style="width:32px;height:32px;"><img src="icon.png"></div>
+            <span>Reopen UI</span>
           </div>
         </div>
       </section>
